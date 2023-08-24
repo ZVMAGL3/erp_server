@@ -6,11 +6,18 @@
     header("Access-Control-Max-Age: 3600");
     header("Content-Type: application/json; charset=UTF-8");
     include('./config/db.php');
+    include('./config/db_vip.php');
     include('./config/conn.php');
-    // 获取 POST 请求的 JSON 数据
-    $requestData = json_decode(file_get_contents('php://input'), true);
+
     // 创建数据库实例
     $db = new Database($dbconfig);
+    // 创建数据库实例
+    $db_vip = new Database($db_vipconfig);
+
+
+
+    // 获取 POST 请求的 JSON 数据
+    $requestData = json_decode(file_get_contents('php://input'), true);
 
     // 查询语句和参数
     $query = "SELECT * FROM msc_user_reg WHERE SYS_ShouJi = ? AND SYS_PassWord = ?";
