@@ -1,5 +1,4 @@
 <?php
- 
     $db_vipconfig=array();
     $db_vipconfig["host"]='127.0.0.1:3306';
     $db_vipconfig["database"]='botelerp';
